@@ -1,3 +1,7 @@
+output "sentinel_watchlists_id" {
+  description = "Map of id values across all sentinel_watchlists, keyed the same as var.sentinel_watchlists"
+  value       = { for k, v in azurerm_sentinel_watchlist.sentinel_watchlists : k => v.id }
+}
 output "sentinel_watchlists_default_duration" {
   description = "Map of default_duration values across all sentinel_watchlists, keyed the same as var.sentinel_watchlists"
   value       = { for k, v in azurerm_sentinel_watchlist.sentinel_watchlists : k => v.default_duration }
